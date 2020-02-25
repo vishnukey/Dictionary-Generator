@@ -4,7 +4,7 @@ import sys
 import os
 from glob import glob
 
-DEBUG = True
+DEBUG = False
 
 def debug(msg):
     if DEBUG:
