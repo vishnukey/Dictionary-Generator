@@ -49,11 +49,15 @@ def genDict(body, template):
 def mkDict(body, oname):
     with open(oname, 'w') as f:
         f.write(body)
-
+ofile = "Dictionary.md"
+if len(sys.argv) >= 2:
+    ofile = sys.argv[1]
+print("Generating %s..." % ofile)
 defs = getDefs()
 defTemplate = getTemplate('definition')
 dictTemplate = getTemplate('dictionary')
 dictionary = build(map(substitue(defTemplate), defs))
-mkDict(genDict(dictionary, dictTemplate), "Dictionary.md")
+mkDict(genDict(dictionary, dictTemplate), ofile)
+print("Done")
 
 
